@@ -1,23 +1,25 @@
 ### Listar tarefas
 GET http://localhost:3333/api/tasks
 
-###
-# Criar uma tarefa com data limite
+### Listar tarefas pendentes
+GET http://localhost:3333/api/tasks?status=pending
+
+### Criar uma tarefa com data limite
 POST http://localhost:3333/api/tasks
 Content-Type: application/json
 
 {
-    "title": "Estudar Fastify",
-    "dueDate": "2026-09-20"
+  "title": "Estudar Fastify",
+  "dueDate": "2026-12-20"
 }
 
-###
-# Marcar como concluída (troque 1 pelo id retornado)
+### Marcar como concluída (troque 1 pelo id retornado)
 PATCH http://localhost:3333/api/tasks/1
 Content-Type: application/json
 
-{"completed": true}
+{
+  "completed": true
+}
 
-###
-# Excluir
+### Excluir uma tarefa
 DELETE http://localhost:3333/api/tasks/1

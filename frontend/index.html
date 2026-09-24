@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="claro">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todolist - Minhas tarefas</title>
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <main class="container">
+      <header class="topo">
+        <div>
+          <h1>Minhas tarefas</h1>
+          <p class="subtitulo">Organize o seu dia de um jeito simples.</p>
+        </div>
+        <button
+          type="button"
+          class="alternar-tema"
+          id="alternar-tema"
+          aria-label="Ativar tema escuro"
+          aria-pressed="false"
+          title="Ativar tema escuro"
+        >
+          <span class="icone-tema" aria-hidden="true">☾</span>
+          <span class="texto-tema">Tema escuro</span>
+        </button>
+      </header>
+
+      <section class="painel" aria-label="Resumo das tarefas">
+        <div class="cartao" id="cartao-total">
+          <strong>-</strong>
+          <span>Totais</span>
+        </div>
+        <div class="cartao" id="cartao-pendentes">
+          <strong>-</strong>
+          <span>Pendentes</span>
+        </div>
+        <div class="cartao" id="cartao-concluidas">
+          <strong>-</strong>
+          <span>Concluídas</span>
+        </div>
+      </section>
+
+      <section class="progresso" aria-labelledby="progresso-titulo">
+        <div class="progresso-cabecalho">
+          <span id="progresso-titulo">Progresso</span>
+          <strong id="progresso-valor">0%</strong>
+        </div>
+        <div
+          class="progresso-trilho"
+          id="progresso-trilho"
+          role="progressbar"
+          aria-valuemin="0"
+          aria-valuemax="100"
+          aria-valuenow="0"
+          aria-valuetext="0% concluído"
+          aria-label="Percentual de tarefas concluídas"
+        >
+          <span class="progresso-barra" id="progresso-barra"></span>
+        </div>
+      </section>
+
+      <form class="formulario" id="formulario">
+        <div class="campos-linha">
+          <input
+            type="text"
+            id="titulo"
+            name="titulo"
+            placeholder="O que você precisa fazer?"
+            maxlength="255"
+            autocomplete="off"
+          />
+          <input type="date" id="prazo" name="prazo" />
+          <button type="submit" class="btn-primario">Adicionar</button>
+        </div>
+        <p class="erro" id="erro" hidden></p>
+      </form>
+
+      <section class="filtros">
+        <button type="button" class="filtro ativo" data-status="all">Todas</button>
+        <button type="button" class="filtro" data-status="pending">Pendentes</button>
+        <button type="button" class="filtro" data-status="completed">Concluídas</button>
+        <input
+          type="search"
+          id="busca"
+          placeholder="Buscar tarefa..."
+          autocomplete="off"
+        />
+      </section>
+
+      <ul class="lista" id="lista"></ul>
+
+      <p class="vazio" id="vazio" hidden>Nenhuma tarefa por aqui. Que tal adicionar uma?</p>
+
+      <footer class="rodape"></footer>
+    </main>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
